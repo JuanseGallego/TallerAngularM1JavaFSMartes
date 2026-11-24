@@ -15,6 +15,11 @@ export const routes: Routes = [
         loadComponent: () =>
             import('./pages/detalle-mascota/detalle-mascota').then((m) => m.DetalleMascota),
         title: 'Huella Amiga · Mascota'
+    }, {
+        path: 'mi-lista',
+        loadComponent: () =>
+            import('./pages/mi-lista/mi-lista').then((m) => m.MiLista),
+        title: 'Huella Amiga · Mi Lista'
     },
     { path: '**', component: NoEncontrada, title: 'Huella Amiga · Pagina No Encontrada' }
 ];

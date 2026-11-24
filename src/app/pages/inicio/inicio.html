@@ -9,6 +9,7 @@
 <h2 class="listado__titulo">Disponibles, sin adoptar</h2>
 <div class="listado__grilla">
     @for (mascota of disponibles; track mascota.id) {
-    <app-tarjeta-mascota [mascota]="mascota" />
+    <app-tarjeta-mascota [mascota]="mascota" [esFavorita]="favoritos.esFavorita(mascota.id)"
+        (favoritoAlternado)="favoritos.alternar($event)" />
     }
 </div>

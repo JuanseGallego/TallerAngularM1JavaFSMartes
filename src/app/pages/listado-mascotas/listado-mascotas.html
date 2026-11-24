@@ -1,10 +1,22 @@
 <section class="listado">
     <h2 class="listado__titulo">Conocé a nuestras mascotas</h2>
-    <p data-testid="total-mascotas" class="listado__total"> {{ mascotas.length }} mascotas en total</p>
+
+    <div class="filtros">
+        <input #campo class="filtros__buscador" data-testid="buscador" type="search" placeholder="Busca por nombre"
+            (input)="busqueda.set(campo.value)" />
+
+        <label class="filtros__casilla" for="solo-disponibles">
+            <input id="solo-disponibles" #casilla data-testid="solo-disponibles" type="checkbox" [checked]="disponible()"
+                (change)="disponible.set(casilla.checked)" />
+            Solo disponibles
+        </label>
+    </div>
+    <p data-testid="total-mascotas" class="listado__total"> {{ listaFiltrada().length }} mascotas en total</p>
 
     <div class="listado__grilla">
-        @for (mascota of mascotas; track mascota.id) {
-        <app-tarjeta-mascota [mascota]="mascota" />
+        @for (mascota of listaFiltrada(); track mascota.id) {
+        <app-tarjeta-mascota [mascota]="mascota" [esFavorita]="favoritos.esFavorita(mascota.id)"
+            (favoritoAlternado)="favoritos.alternar($event)" />
         } @empty {
         <p data-testid="sin-mascotas" class="listado__vacio"> No hay mascotas por ahora </p>
         }

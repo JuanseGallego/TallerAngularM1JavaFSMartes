@@ -48,5 +48,13 @@ export const MASCOTAS: Mascota[] = [
         edadMeses: 15,
         descripcion: "Es un gato juguetón y muy sociable",
         adoptada: false
+    },
+    {
+        id: 7,
+        nombre: "Nube",
+        especie: "gato",
+        edadMeses: 10,
+        descripcion: "Es una gatita muy tierna",
+        adoptada: true
     }
 ];

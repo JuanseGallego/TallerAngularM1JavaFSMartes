@@ -13,6 +13,9 @@
 
     <div class="tarjeta__acciones">
         <a data-testid="ver-detalle" class="boton" [routerLink]="['/mascotas', mascota().id]">Ver detalle</a>
+        <button type="button" class="boton boton--secundario" data-testid="boton-favorito" (click)="favoritoAlternado.emit(mascota().id)">
+            {{esFavorita() ? '❤️ En mi lista' : '🤍 Me interesa'}}
+        </button>
     </div>
 
 </article>

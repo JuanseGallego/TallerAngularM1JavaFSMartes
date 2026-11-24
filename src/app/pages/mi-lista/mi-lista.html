@@ -1,0 +1,10 @@
+<section class="listado">
+    <h2 class="listado__titulo">Mi lista</h2>
+    <div class="listado__grilla">
+        @for (mascota of mascotasFavoritas(); track mascota.id) {
+        <app-tarjeta-mascota [mascota]="mascota" [esFavorita]="true" (favoritoAlternado)="favoritos.alternar($event)" />
+        } @empty {
+        <p class="listado__vacio" data-testid="lista-vacia">Todavía no tienes mascotas favoritas</p>
+        }
+    </div>
+</section>

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Mascota } from '../../models/mascota';
 import { Etiqueta } from '../../shared/etiqueta/etiqueta';
 import { RouterLink } from '@angular/router';
@@ -12,6 +12,8 @@ import { RouterLink } from '@angular/router';
 export class TarjetaMascota {
   mascota = input.required<Mascota>();
   mostrarDescripcion = false;
+  esFavorita = input(false);
+  favoritoAlternado = output<number>();
 
   mostrarEdad(): string {
     if (this.mascota().edadMeses === 1) {
